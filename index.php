@@ -22,6 +22,8 @@
                 <th>Province</th>
                 <th>Code postal</th>
                 <th>Téléphone</th>
+                <th><input value="Vider la liste" type="button" onclick="if (confirm('Voulez-vous vraiment supprimer la liste des casernes?')) {this.form.action = 'viderListeCaserne.php'; this.form.method = 'POST'; this.form.submit();}"></th>
+
             </tr>
             <tr>
                 <?php
@@ -34,7 +36,7 @@
                     echo "<td>" . $tab[$i]["CodePostal"] . "</td>";
                     echo "<td>" . $tab[$i]["Telephone"] . "</td>";
                     echo "<td><input value='Modifier' type='button' onclick=\"document.getElementById('id').value='" . $tab[$i]["Id"] . "'; this.form.action='formulaireModificationCaserne.php'; this.form.method='POST'; this.form.submit();\"></td>";
-                    echo "<td><input value='Supprimer' type='button' onclick=\"document.getElementById('id').value='" . $tab[$i]["Id"] . "'; this.form.action='supprimerCaserne.php'; this.form.method='POST'; this.form.submit();\"></td>";
+                    echo "<td><input value='Supprimer' type='button' onclick=\"if (confirm('Voulez-vous vraiment supprimer cette caserne?')) {document.getElementById('id').value='" . $tab[$i]["Id"] . "'; this.form.action='supprimerCaserne.php'; this.form.method='POST'; this.form.submit();}\"></td>";
                     echo "</tr>";
                     }
                 ?>
