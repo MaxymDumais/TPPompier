@@ -33,6 +33,7 @@
                     echo "<td>" . $tab[$i]["Province"] . "</td>";
                     echo "<td>" . $tab[$i]["CodePostal"] . "</td>";
                     echo "<td>" . $tab[$i]["Telephone"] . "</td>";
+                    echo "<td><input value='Modifier' type='button' onclick=\"document.getElementById('id').value='" . $tab[$i]["Id"] . "'; this.form.action='formulaireModificationCaserne.php'; this.form.method='POST'; this.form.submit();\"></td>";
                     echo "</tr>";
                     }
                 ?>
