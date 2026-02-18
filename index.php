@@ -41,7 +41,7 @@
         <input type="hidden" id="id" name="id">
     </form>
     <br><br><br>
-    <form action="" method="POST">
+    <form action="ajouterCaserne.php" method="POST">
         <table>
             <tr>
                 <td>Nom : </td>
