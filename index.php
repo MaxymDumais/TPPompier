@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casernes</title>
 </head>
+<header>
+    <form>
+        <table>
+            <tr>
+                <td><input value="Casernes" type="button" onclick="this.form.action = 'index.php'; this.form.method = 'GET'; this.form.submit();"></td>
+                <td><input value="Interventions" type="button" onclick="this.form.action = 'indexIntervention.php'; this.form.method = 'Get'; this.form.submit();"></td>
+            </tr>   
+        </table>
+    </form>
+</header>
 <body>
     <?php
         $pdo = new PDO("mysql:host=localhost;dbname=pompier","root","");
@@ -13,6 +23,7 @@
         $ins->execute(); 
         $tab = $ins->fetchAll(); 
     ?>
+    <h1>Liste des casernes  :</h1>
     <form>
         <table>
             <tr>
