@@ -40,5 +40,37 @@
         </table>
         <input type="hidden" id="id" name="id">
     </form>
+    <br><br><br>
+    <form action="" method="POST">
+        <table>
+            <tr>
+                <td>Nom : </td>
+                <td><input type="text" name="nom" required></td>
+            </tr>
+            <tr>
+                <td>Adresse : </td>
+                <td><input type="text" name="adresse" required></td>
+            </tr>
+            <tr>
+                <td>Ville : </td>
+                <td><input type="text" name="ville" required></td>
+            </tr>
+            <tr>
+                <td>Province : </td>
+                <td><input type="text" name="province" required></td>
+            </tr>
+            <tr>
+                <td>Code postal : </td>
+                <td><input type="text" name="codePostal" required></td>
+            </tr>
+            <tr>
+                <td>Téléphone : </td>
+                <td><input type="text" name="telephone" required></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Envoyer"></td>
+            </tr>
+        </table>
+    </form>
 </body>
 </html>
