@@ -19,17 +19,47 @@
     <h1>Liste des interventions : </h1>
 
     <label>Sélectionnez une caserne : </label>
-    <select name="nomCaserne" onchange="submit();">
-        <?php
-            $pdo = new PDO("mysql:host=localhost;dbname=pompier","root","");
-            $ins = $pdo->prepare("select * from caserne order by id");
-            $ins->setFetchMode(PDO::FETCH_ASSOC);
-            $ins->execute(); 
-            $tab = $ins->fetchAll(); 
-            for ($i=0;$i<count($tab);$i++) { 
-                echo "<option>" . $tab[$i]["Nom"] . "</option>";
-            }
-        ?>
-    </select>
+        <form method="get">
+        <select name="idSelectCaserne" onchange="this.form.submit();">
+            <?php
+                $pdo = new PDO("mysql:host=localhost;dbname=pompier","root","");
+                $ins = $pdo->prepare("select * from caserne order by id");
+                $ins->setFetchMode(PDO::FETCH_ASSOC);
+                $ins->execute(); 
+                $tabCaserne = $ins->fetchAll(); 
+                $idCaserne = isset($_GET['idSelectCaserne']) ? $_GET['idSelectCaserne'] : $tabCaserne[0]['Id'];
+                foreach ($tabCaserne as $caserne) {
+                    if($caserne["Id"] == $idCaserne)
+                        echo "<option value=" . $caserne["Id"] . " selected>" . $caserne["Nom"] . "</option>";
+                    else
+                        echo "<option value=" . $caserne["Id"] . ">" . $caserne["Nom"] . "</option>";
+                }
+            ?>
+        </select>
+        </form>
+        <br><br><br>
+        <form>
+        <table>
+            <tr>
+                <th>Adresse</th>
+                <th>Type d'intervention</th>
+            </tr>
+            <tr>
+                <?php
+                    $pdo = new PDO("mysql:host=localhost;dbname=pompier","root","");
+                    $ins = $pdo->prepare("select i.*, t.nomTypeIntervention from intervention i join typeIntervention t on i.idTypeIntervention = t.id where idCaserne = $idCaserne");
+                    $ins->setFetchMode(PDO::FETCH_ASSOC);
+                    $ins->execute();
+                    $tabInterventions = $ins->fetchAll(PDO::FETCH_ASSOC);
+                    for ($i=0;$i<count($tabInterventions);$i++) { 
+                    echo "<tr>";
+                    echo "<td>" . $tabInterventions[$i]["Adresse"] . "</td>";
+                    echo "<td>" . $tabInterventions[$i]["nomTypeIntervention"] . "</td>";
+                    echo "</tr>";
+                    }
+                ?>
+            </tr>
+        </table>
+</form>
 </body>
 </html>
