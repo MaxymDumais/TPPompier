@@ -17,5 +17,19 @@
 </header>
 <body>
     <h1>Liste des interventions : </h1>
+
+    <label>Sélectionnez une caserne : </label>
+    <select name="nomCaserne" onchange="submit();">
+        <?php
+            $pdo = new PDO("mysql:host=localhost;dbname=pompier","root","");
+            $ins = $pdo->prepare("select * from caserne order by id");
+            $ins->setFetchMode(PDO::FETCH_ASSOC);
+            $ins->execute(); 
+            $tab = $ins->fetchAll(); 
+            for ($i=0;$i<count($tab);$i++) { 
+                echo "<option>" . $tab[$i]["Nom"] . "</option>";
+            }
+        ?>
+    </select>
 </body>
 </html>
