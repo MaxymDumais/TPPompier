@@ -55,7 +55,8 @@
         </table>
         <input type="hidden" id="id" name="id">
     </form>
-    <br><br><br>
+    <br><br>
+    <h1>Ajouter une caserne : </h1>
     <form action="ajouterCaserne.php" method="POST">
         <table>
             <tr>

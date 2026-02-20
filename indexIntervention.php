@@ -60,6 +60,38 @@
                 ?>
             </tr>
         </table>
-</form>
-</body>
+        </form>
+        <br><br>
+        <h1>Ajouter une intervention : </h1>
+    <form action="ajouterIntervention.php" method="POST">
+        <table>
+            <tr>
+                <td>Adresse : </td>
+                <td><input type="text" name="adresse" required></td>
+            </tr>
+            <tr>Type d'intervention : </tr>
+            <tr>
+                <select name="idSelectTypeIntervention">
+                    <?php
+                        $pdo = new PDO("mysql:host=localhost;dbname=pompier","root","");
+                        $ins = $pdo->prepare("select * from typeIntervention order by id");
+                        $ins->setFetchMode(PDO::FETCH_ASSOC);
+                        $ins->execute();
+                        $tabTypeIntervention = $ins->fetchAll();
+                        $idTypeIntervention = isset($_GET['idSelectTypeIntervention']) ? $_GET['idSelectTypeIntervention'] : $tabTypeIntervention[0]['Id'];
+                        foreach ($tabTypeIntervention as $typeIntervention) {
+                        if($typeIntervention["Id"] == $idTypeIntervention)
+                            echo "<option value=" . $typeIntervention["Id"] . " selected>" . $typeIntervention["NomTypeIntervention"] . "</option>";
+                        else
+                            echo "<option value=" . $typeIntervention["Id"] . ">" . $typeIntervention["NomTypeIntervention"] . "</option>";
+                }
+                    ?>
+                </select>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Envoyer"></td>
+            </tr>
+        </table>
+    </form>
+    </body>
 </html>
