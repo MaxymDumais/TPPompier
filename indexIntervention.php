@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Interventions</title>
 </head>
 <header>
     <form>
@@ -55,6 +55,8 @@
                     echo "<tr>";
                     echo "<td>" . $tabInterventions[$i]["Adresse"] . "</td>";
                     echo "<td>" . $tabInterventions[$i]["nomTypeIntervention"] . "</td>";
+                    echo "<td><input value='Modifier' type='button' onclick=\"\"></td>";
+                    echo "<td><input value='Supprimer' type='button' onclick=\"\"></td>";
                     echo "</tr>";
                     }
                 ?>

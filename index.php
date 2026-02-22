@@ -33,7 +33,15 @@
                 <th>Province</th>
                 <th>Code postal</th>
                 <th>Téléphone</th>
-                <th><input value="Vider la liste" type="button" onclick="if (confirm('Voulez-vous vraiment supprimer la liste des casernes?')) {this.form.action = 'viderListeCaserne.php'; this.form.method = 'POST'; this.form.submit();}"></th>
+                <th>
+                    <input value="Vider la liste" type="button" onclick=
+                    "if (confirm('Voulez-vous vraiment supprimer la liste des casernes?')) 
+                    {
+                        this.form.action = 'viderListeCaserne.php'; 
+                        this.form.method = 'POST'; 
+                        this.form.submit();
+                    }">
+                </th>
 
             </tr>
             <tr>
