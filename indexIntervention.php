@@ -69,8 +69,9 @@
                 <td>Adresse : </td>
                 <td><input type="text" name="adresse" required></td>
             </tr>
-            <tr>Type d'intervention : </tr>
             <tr>
+                <td>Type d'intervention : </td>
+                <td>
                 <select name="idSelectTypeIntervention">
                     <?php
                         $pdo = new PDO("mysql:host=localhost;dbname=pompier","root","");
@@ -84,9 +85,11 @@
                             echo "<option value=" . $typeIntervention["Id"] . " selected>" . $typeIntervention["NomTypeIntervention"] . "</option>";
                         else
                             echo "<option value=" . $typeIntervention["Id"] . ">" . $typeIntervention["NomTypeIntervention"] . "</option>";
-                }
+                        }
                     ?>
                 </select>
+                <input type="hidden" name="idSelectCaserne" value="<?= $idCaserne ?>" />
+                </td>
             </tr>
             <tr>
                 <td><input type="submit" value="Envoyer"></td>
