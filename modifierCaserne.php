@@ -23,4 +23,4 @@ $ins->execute([
 ]);
 
 header('Location: index.php');
-exit;
+?>
