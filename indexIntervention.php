@@ -56,14 +56,13 @@
                     echo "<td>" . $tabInterventions[$i]["Adresse"] . "</td>";
                     echo "<td>" . $tabInterventions[$i]["nomTypeIntervention"] . "</td>";
                     echo "<td><input value='Modifier' type='button' onclick=\"document.getElementById('id').value='" . $tabInterventions[$i]["Id"] . "'; this.form.action='formulaireModificationIntervention.php'; this.form.method='POST'; this.form.submit();\"></td>";
-                    echo "<td><input value='Supprimer' type='button' onclick=\"\"></td>";
+                    echo "<td><input value='Supprimer' type='button' onclick=\"if (confirm('Voulez-vous vraiment supprimer cette intervention?')) {document.getElementById('id').value='" . $tabInterventions[$i]["Id"] . "'; this.form.action='supprimerIntervention.php'; this.form.method='POST'; this.form.submit();}\"></td>";
                     echo "</tr>";
                     }
                 ?>
             </tr>
         </table>
         <input type="hidden" id="id" name="id">
-        <!-- <input type="hidden" id="idTypeIntervention" name="idTypeIntervention"> -->
         </form>
         <br><br>
         <h1>Ajouter une intervention : </h1>
