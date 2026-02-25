@@ -43,6 +43,15 @@
             <tr>
                 <th>Adresse</th>
                 <th>Type d'intervention</th>
+                <th>
+                    <input value="Vider la liste" type="button" onclick=
+                    "if (confirm('Voulez-vous vraiment supprimer la liste des interventions?')) 
+                    {
+                        this.form.action = 'viderListeIntervention.php'; 
+                        this.form.method = 'POST'; 
+                        this.form.submit();
+                    }">
+                </th>
             </tr>
             <tr>
                 <?php
@@ -63,6 +72,7 @@
             </tr>
         </table>
         <input type="hidden" id="id" name="id">
+        <input type="hidden" name="idSelectCaserne" value="<?= $idCaserne ?>" />
         </form>
         <br><br>
         <h1>Ajouter une intervention : </h1>
