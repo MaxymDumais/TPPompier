@@ -8,7 +8,7 @@ try {
     $codePostal = $_POST['codePostal'];
     $telephone = $_POST['telephone'];
 
-    $pdo = new PDO("mysql:host=localhost;dbname=pompier","root","");
+    $pdo = new PDO("mysql:host=localhost;dbname=pompier", "root", "");
 
     $ins = $pdo->prepare("update caserne set Nom = :nom, Adresse = :adresse, Ville = :ville, Province = :province, CodePostal = :codePostal, Telephone = :telephone where Id = :id");
 
@@ -26,5 +26,3 @@ try {
 } catch (PDOException $e) {
     header('Location: index.php');
 }
-
-?>

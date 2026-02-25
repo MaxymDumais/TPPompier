@@ -1,0 +1,183 @@
+/* ===============================
+   Styles généraux
+   =============================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #222;
+}
+
+/* ===============================
+   Header
+   =============================== */
+header {
+    background-color: #1a1a1a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+header .logo {
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Conteneur des boutons */
+header .header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Boutons du header */
+header .btn-header {
+    background-color: #ff4500;
+    /* orange pompier */
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+header .btn-header:hover {
+    background-color: #e03e00;
+    transform: translateY(-2px);
+}
+
+/* ===============================
+   Titres
+   =============================== */
+h1 {
+    color: #1a1a1a;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+/* ===============================
+   Formulaires
+   =============================== */
+/* ===============================
+   Inputs uniformes (text, datetime-local)
+   =============================== */
+input[type="text"],
+input[type="datetime-local"] {
+    width: 100%;
+    /* occupe toute la largeur de la cellule */
+    max-width: 100%;
+    /* jamais plus large que le parent */
+    box-sizing: border-box;
+    /* padding et border inclus */
+    padding: 6px 10px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid #999;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Focus effect */
+input[type="text"]:focus,
+input[type="datetime-local"]:focus {
+    border-color: #ff4500;
+    box-shadow: 0 0 5px rgba(240, 127, 63, 0.5);
+    outline: none;
+}
+
+/* ===============================
+   Tables
+   =============================== */
+.table-caserne {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.table-caserne th,
+.table-caserne td {
+    padding: 12px;
+    text-align: left;
+}
+
+.table-caserne th {
+    background-color: #ff4500;
+    color: #fff;
+}
+
+.table-caserne tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-caserne tr:hover {
+    background-color: #ffe5d9;
+}
+
+/* ===============================
+   Boutons formulaire / tableau
+   =============================== */
+.btn-action {
+    background-color: #1a1a1a;
+    color: #fff;
+    border: 1px solid #1a1a1a;
+    padding: 6px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-action:hover {
+    background-color: #ff4500;
+    border-color: #ff4500;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.icon {
+    width: 5vw;
+    height: 8.889vh;
+}
+
+/* Styles généraux pour les select */
+select {
+    color: black;
+    /* texte blanc */
+    border: 1px solid #ff4500;
+    /* bordure orange */
+    border-radius: 6px;
+    /* coins arrondis */
+    padding: 6px 12px;
+    /* espace interne */
+    font-size: 16px;
+    /* taille du texte */
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover pour indiquer l’interaction */
+
+
+/* Focus pour montrer que le select est actif */
+select:focus {
+    outline: none;
+    border-color: #ff6a00;
+    box-shadow: 0 0 5px #ff4500;
+}
+
+/* Pour les options (affiche le texte correctement) */

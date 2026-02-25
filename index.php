@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="fireTruck.ico">
     <title>Casernes</title>
 </head>
 <header>
-    <form>
+    <form class="form-caserne">
         <table>
             <tr>
-                <td><input value="Casernes" type="button" onclick="this.form.action = 'index.php'; this.form.method = 'GET'; this.form.submit();"></td>
-                <td><input value="Interventions" type="button" onclick="this.form.action = 'indexIntervention.php'; this.form.method = 'Get'; this.form.submit();"></td>
-            </tr>   
+                <td><img class="icon" src="fireTruck.ico"></td>
+                <td><input class="btn-header" value="Casernes" type="button" onclick="this.form.action = 'index.php'; this.form.method = 'GET'; this.form.submit();"></td>
+                <td><input class="btn-header" value="Interventions" type="button" onclick="this.form.action = 'indexIntervention.php'; this.form.method = 'GET'; this.form.submit();"></td>
+            </tr>
         </table>
     </form>
 </header>
+
 <body>
     <?php
-        $pdo = new PDO("mysql:host=localhost;dbname=pompier","root","");
-        $ins = $pdo->prepare("select * from caserne order by id");
-        $ins->setFetchMode(PDO::FETCH_ASSOC);
-        $ins->execute(); 
-        $tab = $ins->fetchAll();
+    $pdo = new PDO("mysql:host=localhost;dbname=pompier", "root", "");
+    $ins = $pdo->prepare("select * from caserne order by id");
+    $ins->setFetchMode(PDO::FETCH_ASSOC);
+    $ins->execute();
+    $tab = $ins->fetchAll();
     ?>
-    <h1>Liste des casernes  :</h1>
-    <form>
-        <table>
+    <h1>Liste des casernes :</h1>
+    <form class="form-caserne">
+        <table class="table-caserne">
             <tr>
                 <th>Nom</th>
                 <th>Adresse</th>
@@ -34,19 +39,18 @@
                 <th>Code postal</th>
                 <th>Téléphone</th>
                 <th>
-                    <input value="Vider la liste" type="button" onclick=
-                    "if (confirm('Voulez-vous vraiment supprimer la liste des casernes?')) 
+                    <input class="btn-action" value="Vider la liste" type="button" onclick="if (confirm('Voulez-vous vraiment supprimer la liste des casernes?')) 
                     {
                         this.form.action = 'viderListeCaserne.php'; 
                         this.form.method = 'POST'; 
                         this.form.submit();
                     }">
                 </th>
-
+                <th></th>
             </tr>
             <tr>
                 <?php
-                    for ($i=0;$i<count($tab);$i++) { 
+                for ($i = 0; $i < count($tab); $i++) {
                     echo "<tr>";
                     echo "<td>" . $tab[$i]["Nom"] . "</td>";
                     echo "<td>" . $tab[$i]["Adresse"] . "</td>";
@@ -54,10 +58,10 @@
                     echo "<td>" . $tab[$i]["Province"] . "</td>";
                     echo "<td>" . $tab[$i]["CodePostal"] . "</td>";
                     echo "<td>" . $tab[$i]["Telephone"] . "</td>";
-                    echo "<td><input value='Modifier' type='button' onclick=\"document.getElementById('id').value='" . $tab[$i]["Id"] . "'; this.form.action='formulaireModificationCaserne.php'; this.form.method='POST'; this.form.submit();\"></td>";
-                    echo "<td><input value='Supprimer' type='button' onclick=\"if (confirm('Voulez-vous vraiment supprimer cette caserne?')) {document.getElementById('id').value='" . $tab[$i]["Id"] . "'; this.form.action='supprimerCaserne.php'; this.form.method='POST'; this.form.submit();}\"></td>";
+                    echo "<td><input class='btn-action' value='Modifier' type='button' onclick=\"document.getElementById('id').value='" . $tab[$i]["Id"] . "'; this.form.action='formulaireModificationCaserne.php'; this.form.method='POST'; this.form.submit();\"></td>";
+                    echo "<td><input class='btn-action' value='Supprimer' type='button' onclick=\"if (confirm('Voulez-vous vraiment supprimer cette caserne?')) {document.getElementById('id').value='" . $tab[$i]["Id"] . "'; this.form.action='supprimerCaserne.php'; this.form.method='POST'; this.form.submit();}\"></td>";
                     echo "</tr>";
-                    }
+                }
                 ?>
             </tr>
         </table>
@@ -65,8 +69,8 @@
     </form>
     <br><br>
     <h1>Ajouter une caserne : </h1>
-    <form action="ajouterCaserne.php" method="POST">
-        <table>
+    <form class="form-caserne" action="ajouterCaserne.php" method="POST">
+        <table class="table-caserne">
             <tr>
                 <td>Nom : </td>
                 <td><input type="text" name="nom" required></td>
@@ -92,9 +96,10 @@
                 <td><input type="text" name="telephone" required></td>
             </tr>
             <tr>
-                <td><input type="submit" value="Envoyer"></td>
+                <td><input class="btn-action" type="submit" value="Envoyer"></td>
             </tr>
         </table>
     </form>
 </body>
+
 </html>
