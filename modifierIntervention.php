@@ -1,6 +1,6 @@
 <?php
-
-$id = $_POST['id'];
+try {
+    $id = $_POST['id'];
 $adresse = $_POST['adresse'];
 $idTypeIntervention = $_POST['idSelectTypeIntervention'];
 $idCaserne = $_POST['idCaserne'];
@@ -16,4 +16,8 @@ $ins->execute([
 ]);
 
 header("Location: indexIntervention.php?idSelectCaserne=$idCaserne");
+} catch (PDOException $e) {
+    header("Location: indexIntervention.php?idSelectCaserne=$idCaserne");
+}
+
 ?>

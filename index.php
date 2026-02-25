@@ -21,7 +21,7 @@
         $ins = $pdo->prepare("select * from caserne order by id");
         $ins->setFetchMode(PDO::FETCH_ASSOC);
         $ins->execute(); 
-        $tab = $ins->fetchAll(); 
+        $tab = $ins->fetchAll();
     ?>
     <h1>Liste des casernes  :</h1>
     <form>
